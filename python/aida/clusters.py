@@ -182,7 +182,7 @@ class Clusters(Object):
                     if gold_mention.get('ID') not in similarities:
                         similarities[gold_mention.get('ID')] = {}
                     iou = get_intersection_over_union(gold_mention, system_mention)
-                    iou = 0 if iou < 0.5 else iou
+                    iou = 0 if iou < 0.4 else iou
                     similarities[gold_mention.get('ID')][system_mention.get('ID')] = iou
             cost_matrix = get_cost_matrix(similarities, mappings)
             alignment = {'gold_mention': {}, 'system_mention': {}}
